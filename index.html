@@ -361,5 +361,26 @@ document.addEventListener('click', function(e) {
     animation.onfinish = () => heart.remove();
 });
     </script>
+    <script>
+    const audio = document.getElementById('weddingAudio');
+    
+    // Hàm kích hoạt nhạc
+    function handlePlay() {
+        audio.play().then(() => {
+            // Nhạc đã chạy, gỡ bỏ các sự kiện để tránh lặp lại
+            ["click", "touchstart", "scroll", "wheel"].forEach(ev => 
+                document.removeEventListener(ev, handlePlay)
+            );
+        }).catch(err => {
+            console.log("Đang chờ khách tương tác để phát nhạc...");
+        });
+    }
+
+    // Lắng nghe mọi hành động của khách trên màn hình
+    document.addEventListener('click', handlePlay);
+    document.addEventListener('touchstart', handlePlay);
+    document.addEventListener('scroll', handlePlay);
+    document.addEventListener('wheel', handlePlay);
+</script>
 </body>
 </html>
