@@ -392,5 +392,21 @@ document.addEventListener('click', function(e) {
         audio.play();
     }, { once: true });
 </script>
+    <audio id="nhacDamCuoi" loop>
+    <source src="TKW/nhac.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function phatNhac() {
+        var audio = document.getElementById('nhacDamCuoi');
+        audio.play().catch(function(error) {
+            console.log("Trình duyệt đang chặn, chờ khách bấm...");
+        });
+    }
+
+    // Hễ khách bấm vào bất cứ đâu trên màn hình là nhạc sẽ nổ
+    document.addEventListener('click', phatNhac, { once: true });
+    document.addEventListener('touchstart', phatNhac, { once: true });
+</script>
 </body>
 </html>
