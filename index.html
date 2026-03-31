@@ -382,5 +382,15 @@ document.addEventListener('click', function(e) {
     document.addEventListener('scroll', handlePlay);
     document.addEventListener('wheel', handlePlay);
 </script>
+    <audio id="weddingMusic" loop>
+    <source src="TKW/nhac.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    document.addEventListener('click', function() {
+        var audio = document.getElementById('weddingMusic');
+        audio.play();
+    }, { once: true });
+</script>
 </body>
 </html>
