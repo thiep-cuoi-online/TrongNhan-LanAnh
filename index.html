@@ -73,9 +73,8 @@
 
         .details { padding: 15px; text-align: center; background: #fff; margin-top: 45px; }
         
-        /* FIX CHỖ NÀY: ÉP TÊN KHÔNG ĐƯỢC XUỐNG DÒNG */
         .family-info { display: flex; width: 100%; margin-bottom: 25px; border-bottom: 1px double var(--gold-light); padding-bottom: 15px; }
-        .family-side { width: 50%; padding: 0 4px; box-sizing: border-box; }
+        .family-side { width: 50%; padding: 0 4px; box-sizing: border-box; text-align: center; }
         .family-side:first-child { border-right: 1px solid #eee; }
         
         .family-title { display: block; font-weight: 700; color: var(--red); margin-bottom: 8px; font-size: 0.8rem; letter-spacing: 1px; }
@@ -84,93 +83,96 @@
             font-size: 0.7rem; 
             color: #333; 
             line-height: 1.5; 
-            white-space: nowrap; /* Ép 1 dòng duy nhất */
+            white-space: nowrap;
             overflow: visible;
         }
         .parent-row strong { color: #000; font-size: 0.72rem; }
 
-        .names { font-family: 'Dancing Script'; color: var(--gold); font-size: 2.3rem; margin: 10px 0; }
+        .names {
+            font-family: 'Dancing Script', cursive;
+            color: var(--gold);
+            font-size: 1.8rem !important; /* Đã cho nhỏ lại để cân đối màn hình */
+            margin: 15px 0;
+            text-align: center;
+            width: 100%;
+            display: block;
+            line-height: 1.2;
+            white-space: normal !important;
+            background: linear-gradient(to right, #c5a059 20%, #fff 40%, #fff 60%, #c5a059 80%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+        
+        @keyframes shine { to { background-position: 200% center; } }
+
         .love-quote { font-family: 'Dancing Script'; font-size: 1.1rem; color: #666; font-style: italic; margin: 20px 0; line-height: 1.5; }
         .guest { border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 12px; margin: 20px 0; font-style: italic; font-size: 0.9rem; }
         .date { background: #fdf9f0; padding: 18px; border-radius: 10px; border: 1px solid var(--gold-light); margin: 20px 0; }
 
-        .rsvp-section { background: #fff8f8; padding: 20px; border-radius: 12px; margin-top: 30px; border: 1px dashed var(--gold); text-align: left; }
-        .rsvp-section h3 { font-family: 'Dancing Script'; text-align: center; color: var(--red); font-size: 1.7rem; margin: 0 0 15px 0; }
-        .rsvp-form input, .rsvp-form select, .rsvp-form textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; font-family: 'Quicksand'; box-sizing: border-box; }
-        .btn-submit { background: var(--red); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; }
-        
         .petal { position: fixed; background-color: var(--pink-petal); border-radius: 150% 0 150% 0; opacity: 0.8; pointer-events: none; z-index: 100; }
         @keyframes fall { to { transform: translateY(105vh) rotate(540deg); opacity: 0; } }
-        /* Tờ lịch đỏ trang trọng */
-.calendar-box {
-    width: 110px; height: 130px; background: #fff; margin: 20px auto;
-    border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden;
-    border: 1px solid #ddd; text-align: center;
-}
-.calendar-header { background: #800000; color: #fff; padding: 5px; font-size: 0.8rem; font-weight: bold; }
-.calendar-day { font-size: 2.8rem; font-weight: bold; color: #333; line-height: 1.2; margin-top: 5px; }
-.calendar-month { font-size: 0.8rem; color: #666; font-weight: bold; text-transform: uppercase; }
 
-/* Đồng hồ đếm ngược */
-.countdown-timer { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
-.cd-item { background: #fdf2f2; padding: 8px; border-radius: 8px; min-width: 50px; border: 1px solid #f9dcdc; text-align: center; }
-.cd-num { display: block; font-size: 1.1rem; font-weight: bold; color: #800000; }
-.cd-text { font-size: 0.6rem; color: #888; text-transform: uppercase; }
-/* ÉP TÊN TRỌNG NHÂN & LAN ANH TRÊN 1 HÀNG, KHÔNG CHO XUỐNG DÒNG */
-.names {
-    font-family: 'Dancing Script', cursive;
-    color: var(--gold);
-    font-size: 2.3rem; /* Cỡ chữ đẹp nhất */
-    margin: 10px 0;
-    white-space: nowrap; /* TÊN LUÔN TRÊN 1 DÒNG */
-    overflow: visible;   /* HIỂN THỊ ĐẦY ĐỦ */
-}
-/* Tên lấp lánh ánh vàng */
-.names {
-    background: linear-gradient(to right, #c5a059 20%, #fff 40%, #fff 60%, #c5a059 80%);
-    background-size: 190% auto;
-    color: #c5a059;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 4s linear infinite;
-}
-@keyframes shine { to { background-position: 200% center; } }
+        .calendar-box {
+            width: 110px; height: 130px; background: #fff; margin: 20px auto;
+            border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden;
+            border: 1px solid #ddd; text-align: center;
+        }
+        .calendar-header { background: #800000; color: #fff; padding: 5px; font-size: 0.8rem; font-weight: bold; }
+        .calendar-day { font-size: 2.8rem; font-weight: bold; color: #333; line-height: 1.2; margin-top: 5px; }
+        .calendar-month { font-size: 0.8rem; color: #666; font-weight: bold; text-transform: uppercase; }
 
-/* Nút bấm rung rinh mời gọi */
-.btn-submit { animation: wobble 2.5s infinite; }
-@keyframes wobble {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.06); }
-}
+        .countdown-timer { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
+        .cd-item { background: #fdf2f2; padding: 8px; border-radius: 8px; min-width: 50px; border: 1px solid #f9dcdc; text-align: center; }
+        .cd-num { display: block; font-size: 1.1rem; font-weight: bold; color: #800000; }
+        .cd-text { font-size: 0.6rem; color: #888; text-transform: uppercase; }
 
-/* Dòng chữ chạy ngang */
-.marquee-container {
-    width: 100%; overflow: hidden; white-space: nowrap; 
-    background: #fff8f8; border-y: 1px solid #f9dcdc; margin: 15px 0;
-}
-.marquee-text {
-    display: inline-block; font-size: 0.75rem; color: #888;
-    animation: marquee-scroll 20s linear infinite; padding-left: 100%;
-}
-@keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-
+        .calendar-wrap {
+            width: 250px; margin: 20px auto; padding: 15px;
+            background: #fff; border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #fdf2f2;
+        }
+        .cal-month-title {
+            text-align: center; font-weight: bold; color: #800000;
+            margin-bottom: 10px; font-size: 0.9rem; letter-spacing: 2px;
+        }
+        .cal-grid {
+            display: grid !important;
+            grid-template-columns: repeat(7, 1fr) !important;
+            text-align: center;
+        }
+        .day-name { font-size: 0.7rem; font-weight: bold; color: #bbb; padding-bottom: 5px; }
+        .cal-grid span, .cal-grid div { 
+            font-size: 0.8rem; padding: 6px 0; 
+            display: block; position: relative; color: #444;
+        }
+        .heart-mark { 
+            color: #800000 !important; font-weight: bold; 
+        }
+        .heart-mark::after {
+            content: '❤️';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 22px;
+            opacity: 0.4;
+            z-index: 0;
+        }
     </style>
 </head>
 <body>
 
     <button id="music-btn" onclick="toggleMusic(event)">♪</button>
     <audio id="bg-music" loop>
-        <source src="TKW/nhac.mp3" type="audio/mpeg">
+        <source src="nhac.mp3" type="audio/mpeg">
     </audio>
 
     <div class="invitation-container" onclick="openInvitation()">
         <div class="front">
             <div class="wax">N & A</div>
             <p style="color: var(--gold-light); font-size: 0.9rem; margin-top: 60px; z-index: 3; letter-spacing: 3px; font-weight: bold;">CHẠM ĐỂ MỞ THIỆP</p>
-            <!-- Dòng chữ chạy kể chuyện -->
-<div class="marquee-container">
-</div>
         </div>
 
         <div class="back">
@@ -181,12 +183,6 @@
                 <div class="slide-item"><div class="slide-img" style="background-image: url('https://i.ibb.co/jPYSVFkB/anhcuoi4.jpg')"></div></div>
                 <div class="slide-item"><div class="slide-img" style="background-image: url('https://i.ibb.co/LXz0Kzt2/anhcuoi5.jpg')"></div></div>
                 <div class="slide-item"><div class="slide-img" style="background-image: url('https://i.ibb.co/8n8yCkPP/anhcuoi6.jpg')"></div></div>
-                <div class="slide-item"><div class="slide-img" style="background-image: url('https://i.ibb.co/JwSgJVmm/anhcuoi9.jpg')"></div></div>
-                <div class="slide-item"><div class="slide-img" style="background-image: url('https://i.ibb.co/7dFcVhrT/anhcuoi11-1.jpg')"></div></div>
-                <div class="slide-item"><div class="slide-img" style="background-image: url('https://i.ibb.co/k6mVrKH6/anhcuoi11-7.jpg')"></div></div>
-                <div class="slide-item"><div class="slide-img" style="background-image: url('https://i.ibb.co/Cshk96bT/anhcuoi11-9.jpg')"></div></div>
-                <div class="slide-item"><div class="slide-img" style="background-image: url('https://i.ibb.co/8ngr9f2z/anhcuoi11-10.jpg')"></div></div>
-                <div class="slide-item"><div class="slide-img" style="background-image: url('https://i.ibb.co/fYmBQB3Y/anhcuoi11-11.jpg')"></div></div>
             </div>
 
             <div class="details">
@@ -205,22 +201,36 @@
                     </div>
                 </div>
 
+                <div class="calendar-wrap">
+                    <div class="cal-month-title">THÁNG 4 / 2026</div>
+                    <div class="cal-grid">
+                        <div class="day-name">T2</div><div class="day-name">T3</div><div class="day-name">T4</div><div class="day-name">T5</div><div class="day-name">T6</div><div class="day-name">T7</div><div class="day-name" style="color:red">CN</div>
+                        <div></div><div></div>
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                        <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+                        <span class="heart-mark">12</span>
+                        <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+                        <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
+                        <span>27</span><span>28</span><span>29</span><span>30</span>
+                    </div>
+                </div>
+
                 <p style="letter-spacing: 2px; font-size: 0.7rem; color: #999; margin: 15px 0;">TRÂN TRỌNG KÍNH MỜI ĐẾN DỰ LỄ TÂN HÔN</p>
                 
                 <h1 class="names">Trọng Nhân & Lan Anh</h1>
-                <!-- Khối hiển thị Lịch và Đồng hồ -->
-<div class="calendar-box">
-    <div class="calendar-header">THÁNG TƯ</div>
-    <div class="calendar-day">12</div>
-    <div class="calendar-month">CHỦ NHẬT</div>
-</div>
 
-<div class="countdown-timer">
-    <div class="cd-item"><span class="cd-num" id="d_num">00</span><span class="cd-text">Ngày</span></div>
-    <div class="cd-item"><span class="cd-num" id="h_num">00</span><span class="cd-text">Giờ</span></div>
-    <div class="cd-item"><span class="cd-num" id="m_num">00</span><span class="cd-text">Phút</span></div>
-    <div class="cd-item"><span class="cd-num" id="s_num">00</span><span class="cd-text">Giây</span></div>
-</div>
+                <div class="calendar-box">
+                    <div class="calendar-header">THÁNG TƯ</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-month">CHỦ NHẬT</div>
+                </div>
+
+                <div class="countdown-timer">
+                    <div class="cd-item"><span class="cd-num" id="d_num">00</span><span class="cd-text">Ngày</span></div>
+                    <div class="cd-item"><span class="cd-num" id="h_num">00</span><span class="cd-text">Giờ</span></div>
+                    <div class="cd-item"><span class="cd-num" id="m_num">00</span><span class="cd-text">Phút</span></div>
+                    <div class="cd-item"><span class="cd-num" id="s_num">00</span><span class="cd-text">Giây</span></div>
+                </div>
 
                 <div class="love-quote">
                     "Kể từ giây phút này, chúng ta sẽ viết tiếp câu chuyện mang tên: Gia đình."
@@ -230,7 +240,7 @@
                 
                 <div class="info">
                     Tại: <strong style="color: #b31212;">NHÀ HÀNG HƯNG LỘC PHÁT</strong><br>
-                    <small>Sảnh 2 - Số 18, Trần Hưng Đạo, P. Phú Lợi, TP Cần Thơ </small>
+                    <small>Sảnh 2 - Số 18, Trần Hưng Đạo, P. Phú Lợi, TP Cần Thơ</small>
                 </div>
 
                 <div class="date">
@@ -238,22 +248,10 @@
                     <span style="color: var(--red); font-weight: bold; font-size: 1.3rem;">12 / 04 / 2026</span><br>
                     <small>(Tức ngày 25 tháng 02 năm Bính Ngọ)</small>
                 </div>
+
                 <div style="margin: 20px 0; padding: 15px 0; border-top: 1px double var(--gold-light); text-align: center;">
-    <span style="font-size: 0.85rem; color: #666; letter-spacing: 1px;">CHỦ HÔN</span><br>
-    <strong style="color: var(--red); font-size: 1.1rem; display: inline-block; margin-top: 5px;">HỒNG VŨ & THỊ NÂNG</strong>
-</div>
-                <div class="rsvp-section">
-                    <h3>Xác Nhận Tham Dự</h3>
-                    <div class="rsvp-form">
-                        <input type="text" id="rsvp-name" placeholder="Tên của bạn/anh/chị...">
-                        <select id="rsvp-count">
-                            <option value="1">Đi 1 mình</option>
-                            <option value="2">Đi 2 người</option>
-                            <option value="family">Cả gia đình</option>
-                        </select>
-                        <textarea id="rsvp-note" placeholder="Gửi lời chúc đến đôi bạn trẻ..." rows="3"></textarea>
-                        <button type="button" class="btn-submit" onclick="sendRSVP()">GỬI XÁC NHẬN</button>
-                    </div>
+                    <span style="font-size: 0.85rem; color: #666; letter-spacing: 1px;">CHỦ HÔN</span><br>
+                    <strong style="color: var(--red); font-size: 1.1rem; display: inline-block; margin-top: 5px;">HỒNG VŨ & THỊ NÂNG</strong>
                 </div>
 
                 <div style="margin-top: 50px; font-size: 0.75rem; color: #888; border-top: 1px solid #eee; padding-top: 20px; font-style: italic;">
@@ -321,92 +319,31 @@
             }
         }
 
-        function sendRSVP() {
-            const name = document.getElementById('rsvp-name').value;
-            if(!name) {
-                alert("Vui lòng nhập tên khách mời ạ!");
-                return;
-            }
-            alert("Cảm ơn " + name + "! Xác nhận đã được gửi thành công.");
-        }
-        // Lệnh chạy đồng hồ đếm ngược
-setInterval(function() {
-    const weddingDate = new Date("April 12, 2026 11:00:00").getTime();
-    const now = new Date().getTime();
-    const dist = weddingDate - now;
-    
-    // Tính toán thời gian
-    const d = Math.floor(dist / (1000 * 60 * 60 * 24));
-    const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((dist % (1000 * 60)) / 1000);
+        setInterval(function() {
+            const weddingDate = new Date("April 12, 2026 11:00:00").getTime();
+            const now = new Date().getTime();
+            const dist = weddingDate - now;
+            const d = Math.floor(dist / (1000 * 60 * 60 * 24));
+            const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((dist % (1000 * 60)) / 1000);
+            document.getElementById("d_num").innerText = d < 10 ? "0" + d : d;
+            document.getElementById("h_num").innerText = h < 10 ? "0" + h : h;
+            document.getElementById("m_num").innerText = m < 10 ? "0" + m : m;
+            document.getElementById("s_num").innerText = s < 10 ? "0" + s : s;
+        }, 1000);
 
-    // Đẩy số ra màn hình
-    document.getElementById("d_num").innerText = d < 10 ? "0" + d : d;
-    document.getElementById("h_num").innerText = h < 10 ? "0" + h : h;
-    document.getElementById("m_num").innerText = m < 10 ? "0" + m : m;
-    document.getElementById("s_num").innerText = s < 10 ? "0" + s : s;
-}, 1000);
-document.addEventListener('click', function(e) {
-    const heart = document.createElement('div');
-    heart.innerHTML = '❤️';
-    heart.style.cssText = `position:fixed; left:${e.clientX}px; top:${e.clientY}px; font-size:20px; pointer-events:none; z-index:9999;`;
-    document.body.appendChild(heart);
-    
-    let animation = heart.animate([
-        { transform: 'translateY(0) scale(1)', opacity: 1 },
-        { transform: 'translateY(-100px) scale(1.5)', opacity: 0 }
-    ], 1000);
-    
-    animation.onfinish = () => heart.remove();
-});
+        document.addEventListener('click', function(e) {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.cssText = `position:fixed; left:${e.clientX}px; top:${e.clientY}px; font-size:20px; pointer-events:none; z-index:9999;`;
+            document.body.appendChild(heart);
+            let animation = heart.animate([
+                { transform: 'translateY(0) scale(1)', opacity: 1 },
+                { transform: 'translateY(-100px) scale(1.5)', opacity: 0 }
+            ], 1000);
+            animation.onfinish = () => heart.remove();
+        });
     </script>
-    <script>
-    const audio = document.getElementById('weddingAudio');
-    
-    // Hàm kích hoạt nhạc
-    function handlePlay() {
-        audio.play().then(() => {
-            // Nhạc đã chạy, gỡ bỏ các sự kiện để tránh lặp lại
-            ["click", "touchstart", "scroll", "wheel"].forEach(ev => 
-                document.removeEventListener(ev, handlePlay)
-            );
-        }).catch(err => {
-            console.log("Đang chờ khách tương tác để phát nhạc...");
-        });
-    }
-
-    // Lắng nghe mọi hành động của khách trên màn hình
-    document.addEventListener('click', handlePlay);
-    document.addEventListener('touchstart', handlePlay);
-    document.addEventListener('scroll', handlePlay);
-    document.addEventListener('wheel', handlePlay);
-</script>
-    <audio id="weddingMusic" loop>
-    <source src="TKW/nhac.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-    document.addEventListener('click', function() {
-        var audio = document.getElementById('weddingMusic');
-        audio.play();
-    }, { once: true });
-</script>
-    <audio id="nhacDamCuoi" loop>
-    <source src="TKW/nhac.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-    function phatNhac() {
-        var audio = document.getElementById('nhacDamCuoi');
-        audio.play().catch(function(error) {
-            console.log("Trình duyệt đang chặn, chờ khách bấm...");
-        });
-    }
-
-    // Hễ khách bấm vào bất cứ đâu trên màn hình là nhạc sẽ nổ
-    document.addEventListener('click', phatNhac, { once: true });
-    document.addEventListener('touchstart', phatNhac, { once: true });
-</script>
 </body>
 </html>
